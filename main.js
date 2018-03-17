@@ -1,7 +1,7 @@
 var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 1000 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom,
-    diameter = 80;
+    height = 400 - margin.top - margin.bottom,
+    diameter = 70;
 
 var removeColor = "#f98181";
 var addColor = "#6fd69a";
@@ -85,14 +85,14 @@ function addPack(root, parent) {
 
 	  node.filter(function(d) { return !d.children; }).append("text")
 	      .attr("dy", "0.3em")
-	      .text(function(d) { 
+	      .text(function(d) {
 	      	return d.data.name.length > d.r/3 ? d.data.name.substring(0, d.r/3) + ".." : d.data.name;
 	      });
 
 	  node.filter(function(d) { return d.children; }).append("text")
 	      .attr("dy", diameter/2 + 10)
-	      .text(function(d) { 
-	      	return d.data.name.length > d.r/3 ? d.data.name.substring(0, d.r/3) + "..." : d.data.name; 
+	      .text(function(d) {
+	      	return d.data.name.length > d.r/3 ? d.data.name.substring(0, d.r/3) + "..." : d.data.name;
 	      });
 
 	  node
@@ -145,9 +145,9 @@ function addContentToTooltip(node) {
 	} else {
 		let html = "<table><tbody>"
 			  + "<tr>"
-			  + "<td>Domain</td><td>" + node.parent.data.name + "</td>"
+			  + "<td>Inventory:</td><td>" + node.parent.data.name + "</td>"
 			  + "</tr><tr>"
-			  + "<td>Status</td><td style='color: " + (node.data.status === "removed" ? removeColor : addColor) + "'>" + node.data.status + "</td>";
+			  + "<td>Status:</td><td style='color: " + (node.data.status === "removed" ? removeColor : addColor) + "'>" + node.data.status + "</td>";
 			  + "</tr>"
 			  + "</tbody>"
 			  + "</table>";
